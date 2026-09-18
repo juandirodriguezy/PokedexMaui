@@ -21,6 +21,7 @@
                 <Entry x:Name="SearchEntry"
                        Grid.Column="0"
                        Placeholder="Ejemplo: pikachu o 25"
+                       TextColor="Black"
                        ReturnType="Search"
                        Completed="OnSearchClicked" />
                 <Button Grid.Column="1"

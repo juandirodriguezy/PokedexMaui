@@ -17,6 +17,7 @@
             <SearchBar x:Name="SearchFilter"
                        Placeholder="Filtrar fabricante por nombre..."
                        TextChanged="OnFilterChanged" 
+                       TextColor="Black"
                        BackgroundColor="White" />
         </VerticalStackLayout>
 
