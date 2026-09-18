@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PokedexMaui.VehiclesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Fabricantes de Vehículos"
+    BackgroundColor="#F4F7FA">
+
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20">
+        
+        <VerticalStackLayout Grid.Row="0" Spacing="15">
+            <Label Text="Reto API Vehículos"
+                   FontSize="28"
+                   FontAttributes="Bold"
+                   TextColor="#17365D" />
+
+            <SearchBar x:Name="SearchFilter"
+                       Placeholder="Filtrar fabricante por nombre..."
+                       TextChanged="OnFilterChanged" 
+                       BackgroundColor="White" />
+        </VerticalStackLayout>
+
+        <CollectionView x:Name="VehiclesCollection"
+                        Grid.Row="1"
+                        Margin="0,15,0,0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border BackgroundColor="White"
+                            Stroke="#D5DEE8"
+                            StrokeThickness="1"
+                            Margin="0,0,0,10"
+                            Padding="15">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="{Binding MakeId}" 
+                                   TextColor="#52616B" 
+                                   FontAttributes="Bold" 
+                                   VerticalOptions="Center" />
+                            <Label Text="-" TextColor="#52616B" VerticalOptions="Center"/>
+                            <Label Text="{Binding MakeName}" 
+                                   TextColor="#17365D"
+                                   FontSize="16"
+                                   VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <ActivityIndicator x:Name="LoadingIndicator"
+                           Grid.Row="1"
+                           IsVisible="False"
+                           IsRunning="False"
+                           Color="#2F75B5" 
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+
+        <Label x:Name="MessageLabel"
+               Grid.Row="1"
+               IsVisible="False"
+               TextColor="#B42318" 
+               VerticalOptions="Center"
+               HorizontalOptions="Center" />
+
+    </Grid>
+</ContentPage>
